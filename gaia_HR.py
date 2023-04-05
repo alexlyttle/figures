@@ -6,6 +6,7 @@
 
 import numpy as np
 import matplotlib.pyplot as pl
+import cmcrameri
 from matplotlib.colors import PowerNorm
 
 try:
@@ -34,8 +35,8 @@ AND astrometric_chi2_al/(astrometric_n_good_obs_al-5)<1.44*greatest(1,exp(-0.4*(
 
 G = r['g']+5.*np.log10(r['parallax'])-10
 
-pl.plot(r['bp']-r['rp'], G, 'k.', ms=2, alpha=0.2, rasterized=True, zorder=0);
-pl.hist2d(r['bp']-r['rp'], G, cmap='magma', bins=200, cmin=10, norm=PowerNorm(gamma=1/3), zorder=1)
+pl.plot(r['bp']-r['rp'], G, 'k.', ms=2, alpha=0.2, rasterized=True, zorder=0)
+pl.hist2d(r['bp']-r['rp'], G, cmap='cmc.grayC', bins=200, cmin=10, norm=PowerNorm(gamma=1/3), zorder=1)
 pl.gca().invert_yaxis()
 pl.xlabel(r'$B_\mathrm{p}-R_\mathrm{p}$')
 pl.ylabel(r'$G$')
